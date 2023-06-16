@@ -34,6 +34,7 @@
         <div class="pm-value"></div>
         <div class="pm2_5-value"></div>
         <p class="pollution-msg"></p>
+        
       </div>
     </div>
   </div>
@@ -69,6 +70,16 @@
       input.placeholder = "";
     }
 
+
+    function playAlertSound() {
+      // 경고음을 재생하는 코드를 여기에 작성합니다.
+      // 예를 들어, 경고음 파일을 재생하는 Audio 객체를 생성하고 play() 메서드를 호출할 수 있습니다.
+      // 아래는 예시 코드입니다:
+      var alertSound = new Audio("./static/warning.mp3");
+      alertSound.play();
+      
+    }
+
     function getpollution(location) {
       var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=dbd05451f6ae15243c935539fe82e4c5&units=metric';
 
@@ -91,8 +102,9 @@
             $('.center-content').append('<p class="pollution-msg">' + pollutionStatus + '</p>');
 
             if (pmValue10 > 80 || pmValue > 35) {
-          alert("나가시기 전에 마스크 꼭 챙기셔야 해요!!");
-        }
+              playAlertSound();
+              alert("나가시기 전에 마스크 꼭 챙기셔야 해요!!");
+            }
           });
         })
           .fail(function (error) {
