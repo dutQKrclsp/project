@@ -70,7 +70,7 @@ body {
 
 .pm-value {
   font-size: 25px;
-  color: rgb(14, 1, 1);
+  color: black;
   font-weight: bold;
   
 }
@@ -100,10 +100,19 @@ body {
   margin-left: 100px;
 }
 
+@keyframes blink-animation {
+  0% { background-color: rgba(255, 0, 0, 0); }
+  50% { background-color: rgba(255, 0, 0, 0.5); }
+  100% { background-color: rgba(255, 0, 0, 0); }
+}
+
+.blink {
+  animation: blink-animation 0.5s infinite;
+}
 
 
 .bg-sunny {
-  background: url(sunny.jpg) no-repeat center center fixed;
+  background: url(sunny1.jpg) no-repeat center center fixed;
   background-size: cover;
   background-position: right;
   /* 배경 이미지를 요소 오른쪽으로 정렬 */
