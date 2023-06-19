@@ -42,7 +42,7 @@
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <script>
     $(document).ready(function () {
-      setInterval(getTime, 1000); // 1초마다 getTime 함수 호출
+      setInterval(getTime, 1000);
     });
 
     function getTime() {
@@ -72,9 +72,6 @@
 
 
     function playAlertSound() {
-      // 경고음을 재생하는 코드를 여기에 작성합니다.
-      // 예를 들어, 경고음 파일을 재생하는 Audio 객체를 생성하고 play() 메서드를 호출할 수 있습니다.
-      // 아래는 예시 코드입니다:
       var alertSound = new Audio("./static/warning.mp3");
       alertSound.play();
       
@@ -84,18 +81,18 @@
       var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=dbd05451f6ae15243c935539fe82e4c5&units=metric';
 
       $.getJSON(weatherUrl, function (result) {
-        var lat = result.coord.lat; // 지역의 위도
-        var lon = result.coord.lon; // 지역의 경도
+        var lat = result.coord.lat;
+        var lon = result.coord.lon;
 
         var pollutionUrl = 'https://api.openweathermap.org/data/2.5/air_pollution?lat=' + lat + '&lon=' + lon + '&appid=dbd05451f6ae15243c935539fe82e4c5&units=metric';
 
         $.getJSON(pollutionUrl, function (data) {
-          var pmValue = data.list[0].components.pm2_5; // PM2.5 값을 가져옴
-          var pmValue10 = data.list[0].components.pm10; // PM 값을 가져옴
+          var pmValue = data.list[0].components.pm2_5;
+          var pmValue10 = data.list[0].components.pm10;
 
           $('.pm2_5-value').remove();
-          $('.pm-value').text('미세먼지 농도 : ' + pmValue10); // .pm-value 요소에 PM 값을 표시함
-          $('.pm-value').after('<div class="pm2_5-value">초미세먼지 농도 : ' + pmValue + '</div>'); // .pm-value 요소 다음에 PM2.5 값을 추가로 표시함
+          $('.pm-value').text('미세먼지 농도 : ' + pmValue10);
+          $('.pm-value').after('<div class="pm2_5-value">초미세먼지 농도 : ' + pmValue + '</div>');
 
           getPollutionStatus(pmValue10, pmValue, function (pollutionStatus) {
             $('.pollution-msg').remove();
