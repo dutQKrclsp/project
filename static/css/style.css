@@ -53,7 +53,6 @@ body {
 
 #locationInput {
   width: 180px;
-  /* 원하는 크기로 조정 */
   height: 30px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -65,7 +64,7 @@ body {
   position: relative;
   font-size: 15px;
   color: black;
-  text-align: center; /* 중앙 정렬을 위한 추가 */
+  text-align: center;
 }
 
 .pm-value {
@@ -103,23 +102,18 @@ body {
 .bg-sunny {
   background: url(sunny1.jpg) no-repeat center center fixed;
   background-size: cover;
-  background-position: right;
-  /* 배경 이미지를 요소 오른쪽으로 정렬 */
   background-repeat: no-repeat;
-  /* 배경 이미지 반복 없음 */
 }
 
 .bg-cloudy {
   background: url(cloudy.jpg) no-repeat center center fixed;
   background-size: cover;
-  background-position: right;
   background-repeat: no-repeat;
 }
 
 .bg-rainy {
   background: url(rain.gif) no-repeat center center fixed;
   background-size: cover;
-  background-position: right;
   background-repeat: no-repeat;
 }
 
